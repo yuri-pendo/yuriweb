@@ -15,6 +15,9 @@
     <script src="charts.bundle.js"></script>
 
     <script>
+      function printMe() {
+        console.log("print me now baby")
+      }
       (function(apiKey){
           (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
           v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
@@ -171,9 +174,9 @@
        </div>
      </div>
      <div class="col-xs-12 col-md-2">
-       <div class="card-pf card-pf-accented card-pf-aggregate-status">
+       <div class="card-pf card-pf-accented card-pf-aggregate-status" onclick="printMe()">
          <h2 class="card-pf-title">
-           <a href="#"><span class="fa fa-shield"></span><span class="card-pf-aggregate-status-count">9</span> Adipiscing</a>
+           <a href="#"><span class="fa fa-shield"></span><span class="card-pf-aggregate-status-count">10</span> Adipiscing</a>
          </h2>
          <div class="card-pf-body">
            <p class="card-pf-aggregate-status-notifications">
@@ -181,6 +184,11 @@
            </p>
          </div>
        </div>
+       <form id = 'player_stuff'>
+          Switch to visitor:<br>
+          <input type='text' name='switch_visitor' id="stext">
+          <input type="button" value="Submit Visitor" id='smit' >
+        </form>
      </div>
      <div class="col-xs-12 col-md-2">
        <div class="card-pf card-pf-accented card-pf-aggregate-status">
@@ -463,6 +471,12 @@
 
 
 <script>
+  document.getElementById('smit').onclick = function () {
+        pendo.identify(
+          document.getElementById('stext').value,
+          "account4"
+        );
+      }
     $(function() {
       // matchHeight the contents of each .card-pf and then the .card-pf itself
       $(".row-cards-pf > [class*='col'] > .card-pf .card-pf-title").matchHeight();
