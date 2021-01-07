@@ -189,7 +189,12 @@
           Switch to visitor:<br>
           <input type='text' name='switch_visitor' id="stext">
           <input type="button" value="Submit Visitor" id='smit' >
-        </form>
+      </form>
+      <form id = 'language_form'>
+        Switch to visitor:<br>
+        <input type='text' name='change language' id="change_lang">
+        <input type="button" value="Submit Language" id='submit_lang' >
+      </form>
      </div>
      <div class="col-xs-12 col-md-2">
        <div class="card-pf card-pf-accented card-pf-aggregate-status">
@@ -477,6 +482,12 @@
           document.getElementById('stext').value,
           "account4"
         );
+      }
+      document.getElementById('submit_lang').onclick = function () {
+        pendo.updateOptions({
+          "visitor": {
+              "userLang": document.getElementById('change_lang').value
+          }});
       }
     $(function() {
       // matchHeight the contents of each .card-pf and then the .card-pf itself
