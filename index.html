@@ -488,10 +488,7 @@
           "visitor": {
               "userLang": document.getElementById('change_lang').value
           }});
-          setInterval(() => {
-            pendo.loadGuides()
-            clearInterval()
-          }, 500)
+          pendo.loadGuides()          
       }
     $(function() {
       // matchHeight the contents of each .card-pf and then the .card-pf itself
